@@ -1,0 +1,63 @@
+<view class='container'>
+  <view class='header'>
+    <view class='loop' wx:for="{{categorylist}}">
+      <view class="{{currentitem==item.id?'item-selected':'item'}}" bindtap='clickHeader' id="{{item.id}}" data-value="{{item.name}}">
+        {{item.uiName}}
+      </view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class="WViewRow1" wx:for="{{productList}}" >
+      <image class="WImage"  src="{{item.image}}" bindtap='turnToDetail' id="{{item.id}}">
+      </image>
+      <view class="WViewRow2" >
+        <view class='WViewRow2_text'>
+          <text class="WText16PT1" >{{item.name}}</text>
+          <text class="WText16PT1" >￥{{item.price}}</text>
+        </view>
+        <view class='WViewRow2_car' bindtap='cascadeToggle' id='{{item.id}}' data-price='{{item.price}}' data-name='{{item.name}}'>
+          <image src='../../icon/add_into_car.png' class='WViewRow2_car_image'></image>
+        </view>
+      </view>
+      <view class="{{ maskVisual=='hidden'?'animation_no':'animation'}}" animation="{{animationData}}">
+        <view class='animation_header'>
+        </view>
+        <view class='animation_title'>
+          <view class='animation_title_detail'>
+            <view class='animation_title_detail_image'>
+              <image src="{{product.image}}" class='animation_title_image'></image>
+              <view class='animation_title_detail_image_text'>
+                <text>{{product.name}}</text>
+                <text class='product_price'>￥{{product.price}}</text>
+              </view>
+
+            </view>
+            <view class='animation_title_detail_close'>
+              <image class='animation_title_close' src='../../icon/close.png' bindtap='clickClose'></image>
+            </view>
+          </view>
+          <view class='animation_num'>
+            <view class='animation_num_count'>
+              <text class=''>数量:</text>
+            </view>
+
+            <view class="sku">
+              <view class='sku_minu' data-id="{{product.id}}" bindtap='bindMinus'>
+                <text class="{{minusStatus}}">-</text>
+              </view>
+              <view class='sku_number'>
+                <input type="number" bindchange="bindManual" value="{{product.num}}" data-index="{{product.id}}" data-id="{{product.id}}" />
+              </view>
+              <view class='sku_plus' bindtap="bindPlus" data-id="{{product.id}}">
+                <text class="normal">+</text>
+              </view>
+            </view>
+            <view class='ani_footer' bindtap='addIntoCarts'>
+              <text class='ani_footer_text'>加入购物车</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

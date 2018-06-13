@@ -1,0 +1,54 @@
+<view class='container'>
+  <view class='content'>
+    <!-- <view></view> -->
+    <view class="{{display?'null_content_display':'null_content_nodisplay'}}">
+      <image src='../../icon/car_null.png' class='null_image'></image>
+      <view class='content_text_view'>
+        <text class='content_text'>~此处空空如也~</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="{{display?'null_detail_nodisplay':'null_detail_display'}}">
+    <scroll-view class="scroll" scroll-y="true">
+      <view wx:for="{{carts}}">
+        <view class="cart_container">
+          <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'../../icon/selected.png':'../../icon/no_selected.png'}}" />
+
+          <image class="item-image" src="{{item.pic}}"></image>
+
+          <view class="column">
+            <text class="title">{{item.name}}</text>
+            <view class="row">
+              <text class="sku-price">￥</text>
+              <text class="sku-price">{{item.price}}</text>
+              <view class="sku">
+                <view class='sku_minu' data-id="{{index}}" bindtap='bindMinus'>
+                  <text class="{{minusStatus}}">-</text>
+                </view>
+                <view class='sku_number'>
+                  <input type="number" bindchange="bindManual" value="{{item.num}}" data-index="{{index}}" data-id="{{index}}" />
+                </view>
+                <view class='sku_plus' bindtap="bindPlus" data-id="{{index}}">
+                  <text class="normal">+</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="separate"></view>
+      </view>
+    </scroll-view>
+    <view class="bottom_total">
+      <view class="bottom_line"></view>
+
+      <view class="row">
+        <image class="item-allselect" bindtap="allSelect" src="{{isAllSelect?'../../icon/selected.png':'../../icon/no_selected.png'}}" />
+        <text class="small_text">全选</text>
+        <text>合计:￥ </text>
+        <text class="price">{{totalMoney}}</text>
+        <button class="button-red" bindtap="toBuy" formType="submit">购买</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+<view class='container'>
+  <view class='header'>
+    <image src='../../../icon/frame.png' class='header_image'></image>
+  </view>
+  <view class='address' bindtap='addAddress'>
+    <view class='address_text'>
+      <text>请设置收货地址</text>
+    </view>
+    <view class='address_image'>
+      <image src='../../../icon/more.png' class='more_image'></image>
+    </view>
+  </view>
+  <view class='detail'>
+    <view class='detail_summary'>
+      <text>商品合计</text>
+      <text>￥{{totalMoney}}</text>
+    </view>
+    <view class='detail_freight'>
+      <text>运费</text>
+      <text>包邮</text>
+    </view>
+  </view>
+  <view class='detail_image'>
+    <view wx:for="{{cars}}">
+    <scroll-view class='scoll' scroll-y='true' >
+      <view class='detail_image_view'>
+        <view class='product_image_container'>
+          <image src="{{item.pic}}"class='product_image'></image>
+        </view>
+        <view class='product_image_title'>
+          <text class='product_image_title_name'>{{item.name}}</text>
+          <text class='product_image_title_price'>￥{{item.price}}</text>
+        </view>
+        <view class='product_num'>
+          <text>x{{item.num}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    </view>
+    
+
+  </view>
+  <view class='footer'>
+    <view class='footer_pay'>
+      <view class='footer_pay_text'>
+        <text class='out_of_pocket'>实付:</text>
+        <text class='money'>￥{{product.price}}</text>
+      </view>
+    </view>
+    <view class='footer_add'>
+      <view class='footer_add_text'>
+        <text>去下单</text>
+      </view>
+    </view>
+  </view>
+</view>

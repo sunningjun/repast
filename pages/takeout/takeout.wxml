@@ -1,0 +1,179 @@
+<view class='container'>
+  <view class='header'>
+    <view class='header_image'>
+      <image src="../../images/2.jpg" class='logo'></image>
+    </view>
+    <view class='header_description'>
+      <view class='header_description_title'>
+        <text class='header_description_title_text'>起送 ￥0</text>
+        <text class='header_description_title_text'>36分钟</text>
+        <text class='header_description_title_text'>623m</text>
+      </view>
+      <view class='header_description_note'>
+        <text>公告:麦乐鸡全新升级</text>
+      </view>
+      <view class='header_description_cut'>
+        <text>大促销</text>
+      </view>
+    </view>
+  </view>
+  <view class='navigation'>
+    <view class="{{currentitem==1?'item-selected':'item'}}" bindtap='clickHeader' id="1" data-value="{{item.name}}">
+      <text>菜单</text>
+    </view>
+    <view class="{{currentitem==2?'item-selected':'item'}}" bindtap='clickHeader' id="2" data-value="{{item.name}}">
+      <text>评价</text>
+    </view>
+    <view class="{{currentitem==3?'item-selected':'item'}}" bindtap='clickHeader' id="3" data-value="{{item.name}}">
+      <text>商家</text>
+    </view>
+  </view>
+  <view class="{{currentitem==1?'content':'content_none'}}">
+    <view class='content_nav'>
+      <scroll-view scroll-y='true' wx:for="{{categoryList}}" class='scoll_cate'>
+        <view class="{{current==item.id?'content_nav_text_cate_selected':'content_nav_text_cate'}}" id='{{item.name}}' bindtap='showProduct' data-id='{{item.id}}'>
+          {{item.uiName}}
+        </view>
+      </scroll-view>
+    </view>
+    <view class='product_detail'>
+      <scroll-view scroll-y='true' class='scroll_product'>
+        <view class='image_view' wx:for="{{productList}}">
+          <view class='detail_image_view'>
+            <image src='{{item.image}}' class='detail_image'></image>
+          </view>
+          <view class='text_view'>
+            <view class='detail_text'>
+              <text class='title'>{{item.name}}</text>
+              <text class='description'>{{item.description}}</text>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+            <view class='plus_view' bindtap='cascadeToggle' id='{{item.id}}'>
+              <image src='../../icon/plus.png' class='plus'></image>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="{{currentitem==1?'top':'top_none'}}" style='height:{{top_height}}'>
+    <view class='top_text'>
+      <text>新用户立减15</text>
+    </view>
+    <view class="{{showAni?'ani_car':'ani_car_none'}}" animation="{{animationData}}">
+      <view class='header'>
+        <view class='header_clear_all'>
+          <image src='../../icon/clearAll.png' class='clear_all_image'></image>
+          <text class='clear_all_text'>清空购物车</text>
+        </view>
+      </view>
+      <scroll-view class='ani_scroll' scroll-y="true">
+        <view class='ani_scroll_view' wx:for="{{carts}}">
+          <view class='ani_scroll_content'>
+            <view class='ani_scroll_name'>{{item.name}}</view>
+            <view class='ani_scroll_price'>￥{{item.price}}</view>
+            <view class='ani_scroll_num'>
+              <view class='ani_sku_minu' data-id="{{index}}" bindtap='clickMinus'>
+                <image src='../../icon/min.png' class='sku_num_image'></image>
+              </view>
+              <view class='ani_sku_number'>
+                <input type="number" value="{{item.num}}" data-index="{{index}}" data-id="{{index}}" />
+              </view>
+              <view class='ani_sku_plus' bindtap="clickPlus" data-id="{{index}}">
+                <image src='../../icon/plus.png' class='sku_num_image'></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="{{currentitem==1?'footer':'footer_none'}}">
+    <view class='bottom'>
+      <view class='right'>
+        <view bindtap='clickShoppingCar' class='footer_car_view' data-src='"{{totalMoney>0?car_image:default_car_image}}"'>
+          <image src="{{totalMoney>0?car_image:default_car_image}}" class='footer_car'></image>
+        </view>
+        <view class='right_text_view'>
+          <input class="{{totalMoney>0?'summary_price':'summary_price_nodisplay'}}" value="￥{{totalMoney}}"></input>
+          <text class='takeout_price'>令需{{takeout_price}}元配送费</text>
+        </view>
+      </view>
+      <view class="{{displayStyle==3?'left_yelllow':'left'}}" bindtap='toBuy'>
+        <text class="{{displayStyle==1?'left_text':'left_text_none'}}">{{sendUpLimit}}元起送</text>
+        <text class="{{displayStyle==2?'left_text':'left_text_none'}}">还差{{spreadLimit}}元</text>
+        <text class="{{displayStyle==3?'left_text':'left_text_none'}}" >去结算</text>
+      </view>
+    </view>
+  </view>
+  <view class="{{ display=='hidden'?'animation_no':'animation_takeout'}}">
+    <view class='ani_title'>
+      <view class='ani_title_header'>
+        <image src='{{product.image}}' class='image'></image>
+      </view>
+      <view class='ani_content'>
+        <text class='ani_content_title'>{{product.name}}</text>
+        <text class='ani_content_sescription'>{{product.description}}</text>
+      </view>
+      <view class='ani_num'>
+        <view class='animation_num_count'>
+          <text class='ani_num_price'>￥{{product.price}}</text>
+        </view>
+        <view class="sku">
+          <view class='sku_minu' data-id="{{product.id}}" bindtap='bindMinus'>
+            <text class="{{minusStatus}}">-</text>
+          </view>
+          <view class='sku_number'>
+            <input type="number" bindchange="bindManual" value="{{product.num}}" data-index="{{product.id}}" data-id="{{product.id}}" />
+          </view>
+          <view class='sku_plus' bindtap="bindPlus" data-id="{{product.id}}">
+            <text class="normal">+</text>
+          </view>
+        </view>
+      </view>
+      <view class='ani_button'>
+        <view class='ani_button_add' bindtap='addIntoCarts'>
+          <text class='text'>加入购物车</text>
+        </view>
+      </view>
+    </view>
+    <view class='ani_close' bindtap='cascadeDismiss'>
+      <image src='../../icon/ani_close.png' class='ani_title_close'></image>
+    </view>
+  </view>
+
+
+  <view class="{{currentitem==3?'content_shop':'content_none'}}">
+    <view class='shop_note'>
+      <view class='title'>
+        门店公告
+      </view>
+      <view class='detail'>
+        {{shop.note}}
+      </view>
+    </view>
+    <view class='shop_address'>
+      <view class='title'>门店地址</view>
+      <view class='detail'>{{shop.address}}</view>
+
+    </view>
+    <view class='shop_phone'>
+      <view class='title'>门店电话</view>
+      <view class='detail'>{{shop.phone}}</view>
+
+    </view>
+    <view class='shop_contact'>
+      <view class='title'>联系门店</view>
+      <view class='detail'>111111</view>
+
+    </view>
+    <view class='shop_date'>
+      <view class='title'>营业时间</view>
+      <view class='detail'>{{shop.date}}</view>
+      <view class='detail'>{{shop.time}}</view>
+
+    </view>
+  </view>
+
+
+</view>

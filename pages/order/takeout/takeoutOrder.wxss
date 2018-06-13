@@ -1,0 +1,159 @@
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6e6
+}
+
+.header {
+  width: 100%;
+  height: 15%;
+  background-color: white;
+  position: relative;
+  /* border: 1px solid */
+}
+
+.content {
+  width: 100%;
+  height: 75%;
+  background-color: white;
+  position: relative;
+  top: 2%;
+  font-size: 14px
+}
+.middle{
+  width: 100%;
+  height: 60%;
+  font-size: 14px;
+  position: relative;
+   top: 5% ;
+  background-color: whitesmoke
+}
+.footer {
+  width: 100%;
+  height: 10%;
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+.sub_view{
+  width: 90%;
+  height: 50%;
+  display: flex;
+  margin-left: 5%;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 14px
+}
+.header_detail_image{
+  width: 20px;
+  height: 20px
+}
+.header_title{
+  width: 30%;
+  position: relative;
+  top: 25%
+}
+
+.header_detail{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  top: 25%
+}
+.content_detail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 15%;
+
+}
+.content_detail_summary{
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+}
+.sub_content_detail_summary{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-top: 2%; 
+  width: 90%;
+}
+.footer_sub_view{
+  margin-left: 5%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e6e6e6; 
+  /* margin-top: 10%; */
+  width: 90%;
+  position: relative;
+  top: 20%
+
+
+}
+.sub_content_detail{
+  display: flex;
+  justify-content: space-between
+}
+
+.loop .title{
+  width: 60%;
+  margin-left: 5%;
+}
+.loop .num{
+  width: 20%;
+
+}
+.loop .price{
+  width: 20%;
+  text-align: center
+
+}
+.loop .product_view{
+  display: flex;
+  margin-top: 5%
+}
+.footer_view{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.footer_view .summary{
+  width: 70%;
+  color: white;
+  font-size: 14px;
+  text-align: right;
+  position: relative;
+  top: 25%;
+  right: 2%;
+}
+.footer_view  .pay{
+  width: 30%;
+  height: 100%;
+  background-color: #F4E911;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+
+}
+.pay_text{
+  position: relative;
+  top: 25%;
+}
+.footer_sub_view_text{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  top: 20%;
+
+}

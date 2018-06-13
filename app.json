@@ -1,0 +1,55 @@
+{
+  "pages": [
+        "pages/takeout/takeout",
+        
+        "pages/home/home",
+        
+      "pages/order/takeout/takeoutOrder",        
+    "pages/order/add/addOrder",
+    "pages/order_dishes/dishes",
+    "pages/product_detail/detail",
+    "pages/order/order",
+    "pages/userinfo/userinfo",
+    "pages/shoppingcar/shoppingcar",
+    "pages/index/index",
+    "pages/feedback/feedback",
+    "pages/address/address",
+    "pages/collect/collect",
+    "pages/accept/accept",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "icon/index.png",
+        "selectedIconPath": "icon/index.png"
+      },
+      {
+        "pagePath": "pages/shoppingcar/shoppingcar",
+        "text": "购物车",
+        "iconPath": "icon/shopping.png",
+        "selectedIconPath": "icon/shopping.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "icon/order.png",
+        "selectedIconPath": "icon/order.png"
+      },
+      {
+        "pagePath": "pages/userinfo/userinfo",
+        "text": "我的",
+        "iconPath": "icon/user.png",
+        "selectedIconPath": "icon/user.png"
+      }
+    ]
+  }
+}

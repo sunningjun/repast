@@ -1,0 +1,13 @@
+<view class='container'>
+  <view class='content'>
+    <view class='content_input'>
+      <textarea placeholder='请输入您的宝贵建议，限500字' maxlength='500'></textarea>
+    </view>
+
+  </view>
+  <view class='footer'>
+    <view class='content_summit'>
+      <button formType="submit" class='content_summit_button'>提交</button>
+    </view>
+  </view>
+</view>

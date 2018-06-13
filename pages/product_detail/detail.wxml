@@ -1,0 +1,54 @@
+<view class='container'>
+  <view class='swipper'>
+      <swiper indicator-dots="{{indicatordots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swipper_view'>
+        <!-- <block wx:for="{{imgUrls}}"> -->
+          <swiper-item>
+            <image src="{{product.image}}" class="slide-image" />
+          </swiper-item>
+        <!-- </block> -->
+      </swiper>
+  </view>
+  <view class='product_title'>
+    <view class='product_title_name'>
+      <text>{{product.name}}</text>
+    </view>
+    <view class='product_title_price'>
+      <text>￥{{product.price}}</text>
+    </view>
+  </view>
+  <view class='product_detail'>
+    <view class='product_detail_title'>
+      <text>商品详情</text>
+    </view>
+    <view class='product_detail_content'>
+      {{product.description}}
+    </view>
+  </view>
+  <view class='footer'>
+    <view class='footer_car' bindtap='tapShoppingCar'>
+      <view class='footer_view'>
+        <image src='../../icon/car_black.png' class='footer_image'></image>
+      </view>
+    </view>
+    <view class='footer_col'>
+      <view class='footer_view'>
+        <image src="{{selected?'../../icon/like_yet.png':'../../icon/like.png'}}" class='footer_image' bindtap='tapLike'  id='{{product.id}}'></image>
+      </view>
+    </view>
+    <view class='footer_addin'>
+      <view class='footer_view_text' bindtap='addIntoCar'>
+        <text class='footer_text'>加入购物车</text>
+      </view>
+    </view>
+    <view class='footer_buy' bindtap='clickBuy'>
+      <view class='footer_view_text' >
+        <text class='footer_text'>立即购买</text>
+      </view>
+    </view>
+  </view>
+  <view class='float'>
+    <view class='float_button'>
+      <contact-button type='default-light'></contact-button>
+    </view>
+  </view>
+</view>

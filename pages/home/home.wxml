@@ -1,0 +1,47 @@
+<view class='contaniner'>
+  <view class='swipper'>
+    <swiper indicator-dots="{{indicatordots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swipper_view'>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='icon'>
+    <view class='order' bindtap='clickOrder'>
+      <image src='../../images/order-2.png' class='icon_image'></image>
+      <view class='order_text'>
+        <text>堂食</text>
+      </view>
+    </view>
+    <view class='take_out' bindtap='turnToTakeout'>
+      <image src='../../images/takeout.png' class='icon_image'></image>
+      <view class='take_text'>
+        <text>外卖</text>
+      </view>
+    </view>
+  </view>
+  <view class='detail'>
+    <view class='introduce'>
+      <image src='../../images/shop.png' class='introduce_image'></image>
+      <text class='introduce_text'>店铺介绍</text>
+    </view>
+    <view class='introduce'>
+      <image src='../../images/phone.png' class='introduce_image'></image>
+      <text class='introduce_text'>029-000000</text>
+    </view>
+    <view class='introduce'>
+      <image src='../../images/date.png' class='introduce_image'></image>
+      <text class='introduce_text'>10：00-22：00</text>
+    </view>
+    <view class='introduce'>
+      <image src='../../images/add.png' class='introduce_image'></image>
+      <text class='introduce_text'>lalallalal</text>
+    </view>
+    <view class='introduce'>
+      <image src='../../images/bycle.png' class='introduce_image'></image>
+      <text class='introduce_text'>店家配送</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,156 @@
+@import "../../null.wxss"
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.null_image {
+  width: 50px;
+  height: 50px;
+}
+
+.null_content_display {
+  position: relative;
+  align-content: center;
+  top: 100px;
+}
+
+.content_text_view {
+  margin-top: 10px;
+}
+
+.null_detail_nodisplay {
+  display: none;
+}
+
+.null_detail_display {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.cart_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke
+}
+
+.scroll {
+  margin-bottom: 20%
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sku {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 80px;
+  height: 20px;
+  border: 1px solid #cdcdcd;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  margin-top: 70rpx;
+  left: 70rpx;
+}
+
+.sku-price {
+  color: red;
+  position: relative;
+  margin-top: 70rpx;
+}
+
+.price {
+  color: red;
+  position: relative;
+}
+
+.title {
+  font-size: 38rpx;
+  margin-top: 40rpx;
+}
+
+.small_text {
+  font-size: 28rpx;
+  margin-right: 40rpx;
+  margin-left: 10rpx;
+}
+
+.item-select {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 90rpx;
+  margin-left: 20rpx;
+}
+
+.item-allselect {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.item-image {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 20rpx;
+}
+
+.bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+
+.bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: white;
+}
+
+.button-red {
+  background-color: #f44336;
+}
+
+button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 30%;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.sku_minu {
+  width: 30%;
+  border-right: 1px solid #cdcdcd;
+}
+
+.sku_number {
+  width: 30%;
+  border-right: 1px solid #cdcdcd;
+}
+
+.sku_plus {
+  width: 30%;
+}

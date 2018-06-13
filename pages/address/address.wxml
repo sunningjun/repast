@@ -1,0 +1,11 @@
+<view class='container'>
+  <view class='header'>
+    <image src='../../icon/frame.png' class='header_image'></image>
+  </view>
+  <view class='content'></view>
+  <view class='footer'>
+    <view class='footer_button_view'>
+      <button bindtap="addNew" class='footer_button'>+新增收获地址</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,115 @@
+@import "../../animation.wxss"
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 5%;
+  border: 1px solid whitesmoke;
+  text-align: center;
+}
+
+.loop {
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+}
+
+.item {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+}
+
+.item-selected {
+  width: 100%;
+  height: 100%;
+  margin-right: 5%;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #ffd887;
+  border-bottom: medium solid gainsboro;
+  position: relative;
+}
+
+.content {
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+}
+
+.WViewRow1 {
+  box-sizing: border-box;
+  display: inline-block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  width: 45%;
+  height: 200px;
+  margin: 4% 2% 2% 2%;
+  background-color: white;
+  color: #fff;
+  font-size: 20PX;
+  line-height: 20PX;
+  border-radius: 2px;
+}
+
+.WViewRow2 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: white;
+  font-size: 20PX;
+  line-height: 40PX;
+  border: medium solid white;
+  border-top: 0px;
+}
+
+.WImage {
+  width: 100%;
+  height: 150px;
+  border-radius: 2px;
+}
+
+.WText16PT1 {
+  background-color: transparent;
+  color: #000;
+  font-size: 14PX;
+  line-height: 16PX;
+}
+
+.WViewRow2_car_image {
+  width: 30px;
+  height: 30px;
+}
+
+.WViewRow2_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.product_price {
+  color: black;
+  font-size: 12px;
+  align-items: center;
+}
+
+
+
+
+
+
+
+

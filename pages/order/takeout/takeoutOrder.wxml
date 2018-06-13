@@ -1,0 +1,70 @@
+<view class='container'>
+  <view class='header'>
+    <view class='sub_view'>
+      <view class='header_title'>送至</view>
+      <view class='header_detail'>
+        <view class='header_detail_text_view'>
+          <text>请选择配送地址</text>
+        </view>
+        <view class='header_detail_image_view'>
+          <image src='../../../icon/more.png' class='header_detail_image'></image>
+        </view>
+      </view>
+    </view>
+    <view class='sub_view'>
+      <view class='header_title'>送达时间</view>
+      <view class='header_detail'>尽快送达</view>
+    </view>
+  </view>
+  <view class='content'>
+    <scroll-view class='loop' wx:for="{{cars}}">
+      <view class='product_view'>
+        <view class='title'>{{item.name}}</view>
+        <view class='num'>x{{item.num}}</view>
+        <view class='price'>￥{{item.price}}</view>
+      </view>
+    </scroll-view>
+    <view class='middle'>
+      <view class='content_detail'>
+        <view>商品金额</view>
+        <view>￥{{totalMoney}}</view>
+      </view>
+      <view class='content_detail'>
+        <view>餐盒费</view>
+        <view>￥{{package_price}}</view>
+      </view>
+      <view class='content_detail'>
+        <view>配送费</view>
+        <view>￥{{takeout_price}}</view>
+      </view>
+
+      <view class='content_detail_summary'>
+        <view class='sub_content_detail_summary'>
+          <text>优惠券</text>
+          <text>无可用优惠券</text>
+        </view>
+        <view class='sub_content_detail_summary'>
+          <view>小计</view>
+          <view>￥{{total}}</view>
+        </view>
+        <view class='footer_sub_view'>
+        <view class='footer_sub_view_text'>
+           <text>餐具分数/口味偏好</text>
+          <image src='../../../icon/more_black.png' class='header_detail_image'></image>
+        </view>
+       
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class='footer'>
+    <view class='footer_view'>
+      <view class='summary'>合计：￥{{total}}</view>
+      <view class='pay'>
+        <text class='pay_text'>去支付</text>
+      </view>
+    </view>
+  </view>
+</view>

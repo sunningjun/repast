@@ -1,0 +1,15 @@
+<view class='container'>
+  <view class='header'>
+    <view class="{{selected_wait?'item-selected':'item'}}" bindtap='selectWait' data-wait='wait'>待付款</view>
+    <view class="{{selected_yet?'item-selected':'item'}}" bindtap='selectYet' data-yet='yet'>已付款</view>
+    <view class="{{selected_sent?'item-selected':'item'}}" bindtap='selectSent' data-sent='sent'>已发货</view>
+    <view class="{{selected_all?'item-selected':'item'}}" bindtap='selectAll' data-all='all'>全部订单</view>
+  </view>
+  <view class='content'>
+    <view class="{{display?'null_content_display':'null_content_nodisplay'}}">
+      <image src='../../icon/order_null.png' class='null_image'></image>
+      <text class='content_text'>-----------------------------------</text>
+      <text class='content_text'>暂无订单~</text>
+    </view>
+  </view>
+</view>

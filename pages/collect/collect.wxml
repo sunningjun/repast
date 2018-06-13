@@ -1,0 +1,9 @@
+<view class='container'>
+    <view class='content'>
+    <view class="{{display?'null_content_display':'null_content_nodisplay'}}">
+      <image src='../../icon/order_null.png' class='null_image'></image>
+      <text class='content_text'>-----------------------------------</text>
+      <text class='content_text'>暂无收藏商品~</text>
+    </view>
+  </view>
+</view>

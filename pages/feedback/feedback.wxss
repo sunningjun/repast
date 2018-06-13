@@ -1,0 +1,27 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+.content{
+  width: 100%;
+  height: 30%;
+  background-color: white;
+}
+ .content_input{
+  width: 100%;
+  height: 40%;
+  font-size: 14px;
+  margin-top: 5%;
+ }
+ .content_summit_button{
+   width: 90%;
+   color: white; 
+   background-color: goldenrod;
+   font-size: 14px;
+ }
+ .content_summit{
+   margin-top: 5%;
+ }
+ 
+ 
