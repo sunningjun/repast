@@ -1,4 +1,5 @@
 // pages/order/takeout/takeoutOrder.js
+var app=getApp();
 Page({
 
   /**
@@ -9,7 +10,9 @@ Page({
       cars:[],
       takeout_price: 0,
       total:0,
-      package_price:10
+      package_price:10,
+      transferAddress: null,
+      dispaly:0
 
   },
 
@@ -57,7 +60,6 @@ Page({
     this.setData({
       cars: cars
     })
-    console.log(this.data.cars)
 
   },
 
@@ -71,7 +73,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.setData({
+      transferAddress: app.globalData.transferAddress
+    });
+    if (null != this.data.transferAddress){
+      this.setData({
+        display:1
+      });
+    }
   },
 
   /**
@@ -107,5 +116,13 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  turnToAddress:function(){
+    wx.navigateTo({
+      url: '../../address/address',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

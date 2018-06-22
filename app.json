@@ -2,9 +2,10 @@
   "pages": [
         "pages/takeout/takeout",
         
-        "pages/home/home",
-        
-      "pages/order/takeout/takeoutOrder",        
+        "pages/home/home",        
+    "pages/address/address",
+    "pages/accept/accept",
+    "pages/order/takeout/takeoutOrder",
     "pages/order/add/addOrder",
     "pages/order_dishes/dishes",
     "pages/product_detail/detail",
@@ -13,9 +14,7 @@
     "pages/shoppingcar/shoppingcar",
     "pages/index/index",
     "pages/feedback/feedback",
-    "pages/address/address",
     "pages/collect/collect",
-    "pages/accept/accept",
     "pages/logs/logs"
   ],
   "window": {

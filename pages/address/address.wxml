@@ -1,8 +1,30 @@
 <view class='container'>
+
+
   <view class='header'>
     <image src='../../icon/frame.png' class='header_image'></image>
   </view>
-  <view class='content'></view>
+  <form>
+<view class='content'>
+    <view class='loop'>
+      <view wx:for="{{addressList}}">
+        <view class='address' bindtap='selectTransferAddress' id='{{index}}'>
+          <view class='select'>
+            <image src='../../icon/select_dui.png' class="{{currentItem==index?'address_image':'address_image_none'}}"></image>
+          </view>
+          <view class='detail'>
+            <view class='name'>{{item.name}}</view>
+            <view class='detail_address'>{{item.province+item.city+item.reigion+item.detail}} {{item.phone}}</view>
+          </view>
+          <view class='image'>
+            <image src='../../icon/detail.png' class='address_image'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</form>
+  
   <view class='footer'>
     <view class='footer_button_view'>
       <button bindtap="addNew" class='footer_button'>+新增收获地址</button>

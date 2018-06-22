@@ -6,7 +6,7 @@
 
 .header {
   width: 100%;
-  height: 15%;
+  height: 20%;
   background-color: white;
   position: relative;
   /* border: 1px solid */
@@ -156,4 +156,26 @@
   position: relative;
   top: 20%;
 
+}
+.detail_address{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.detail_address .name{
+  /* border: 1px solid black */
+  font-size: 12px;
+
+}
+
+.detail_address_none{
+  display: none
+}
+.default{
+  width: 100%;
+  height: 100%;
+}
+.default_none{
+  display: none
 }

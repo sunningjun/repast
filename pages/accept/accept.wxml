@@ -1,29 +1,41 @@
 <view class='container'>
   <view class='content'>
-    <view class='conent_column'>
-      <view class='conent_column_input'>
-        <input type='text' placeholder='联系人姓名'></input>
+    <view class='content_column'>
+      <view class='title'>联系人</view>
+      <view class='detail'>
+        <input placeholder='请输入联系人姓名' type='text' bindblur='setName'></input>
       </view>
     </view>
-    <view class='conent_column'>
-      <view class='conent_column_input'>
-        <input type='text' placeholder='联系电话'></input>
+    <view class='content_column'>
+      <view class='title'>手机号码</view>
+      <view class='detail'>
+        <input placeholder='请输入联系人手机号码' type='number' bindblur='setPhone' maxlength='11'></input>
       </view>
     </view>
-    <view class='conent_column'></view>
-    <view class='conent_column'>
-      <view class='conent_column_input'>
-        <input type='text' placeholder='详细地址，如街道、楼排号'></input>
+    <view class='content_column'>
+      <view class='title'>选择地区</view>
+      <view class='detail_add'>
+        <view class='select'>
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+        </view>
+        <view class='map' bindtap='chooseLoc'>
+          <image src='../../icon/map.png' class='map_image'></image>
+        </view>
       </view>
     </view>
-    <view class='conent_column_default'>
-      <view class='conent_column_radio'>
-            <radio value="设为默认地址" checked="{{checked}}" color='red'/>设置为默认地址
+    <view class='content_column'>
+      <view class='title'>详细地址</view>
+      <view class='detail'>
+        <input placeholder='请输入详细地址' type='text' value='{{detail}}'  bindblur='setDetail'></input>
       </view>
     </view>
   </view>
   <view class='footer'>
-    <view class='content_summit'>
+    <view class='content_summit' bindtap='saveAddress'>
       <button formType="submit" class='content_summit_button'>保存</button>
     </view>
   </view>

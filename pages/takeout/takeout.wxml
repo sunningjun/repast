@@ -48,8 +48,16 @@
               <text class='description'>{{item.description}}</text>
               <text class='price'>￥{{item.price}}</text>
             </view>
-            <view class='plus_view' bindtap='cascadeToggle' id='{{item.id}}'>
-              <image src='../../icon/plus.png' class='plus'></image>
+            <view class='plus_view'>
+              <view class='minus_view'>
+                <image src='../../icon/minus.png' class='plus'></image>
+              </view>
+              <view class='plus_view_text'>
+                <input type='text'></input>
+              </view>
+              <view class='plus_view_detail' bindtap='cascadeToggle' id='{{item.id}}'>
+                <image src='../../icon/plus.png' class='plus'></image>
+              </view>
             </view>
           </view>
         </view>
@@ -102,7 +110,7 @@
       <view class="{{displayStyle==3?'left_yelllow':'left'}}" bindtap='toBuy'>
         <text class="{{displayStyle==1?'left_text':'left_text_none'}}">{{sendUpLimit}}元起送</text>
         <text class="{{displayStyle==2?'left_text':'left_text_none'}}">还差{{spreadLimit}}元</text>
-        <text class="{{displayStyle==3?'left_text':'left_text_none'}}" >去结算</text>
+        <text class="{{displayStyle==3?'left_text':'left_text_none'}}">去结算</text>
       </view>
     </view>
   </view>

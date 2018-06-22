@@ -2,9 +2,15 @@
   <view class='header'>
     <view class='sub_view'>
       <view class='header_title'>送至</view>
-      <view class='header_detail'>
+      <view class='header_detail' bindtap='turnToAddress'>
         <view class='header_detail_text_view'>
-          <text>请选择配送地址</text>
+          <view class="{{display==1?'detail_address':'detail_address_none'}}">
+            <text class='address'>{{transferAddress.province}}{{transferAddress.city}}{{transferAddress.reigon}}{{transferAddress.detail}}</text>
+            <text class='name'>{{transferAddress.name}} {{transferAddress.phone}}</text>
+          </view>
+          <view class="{{display==1?'default_none':'default'}}">
+            <text>请选择配送地址</text>
+          </view>
         </view>
         <view class='header_detail_image_view'>
           <image src='../../../icon/more.png' class='header_detail_image'></image>
@@ -48,11 +54,11 @@
           <view>￥{{total}}</view>
         </view>
         <view class='footer_sub_view'>
-        <view class='footer_sub_view_text'>
-           <text>餐具分数/口味偏好</text>
-          <image src='../../../icon/more_black.png' class='header_detail_image'></image>
-        </view>
-       
+          <view class='footer_sub_view_text'>
+            <text>餐具分数/口味偏好</text>
+            <image src='../../../icon/more_black.png' class='header_detail_image'></image>
+          </view>
+
         </view>
       </view>
 

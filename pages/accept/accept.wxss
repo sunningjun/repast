@@ -3,43 +3,74 @@
   height: 100%;
   background-color: whitesmoke;
 }
+
 .content {
   width: 100%;
   height: 40%;
   background-color: white;
+  position: relative;
+  top: 2%;
 }
+
 .content_summit_button {
   width: 90%;
   color: red;
-  /* background-color: goldenrod; */
   font-size: 14px;
-  border:1px solid red
+  border: 1px solid red;
 }
+
 .footer {
   width: 100%;
-  height: 60%;
+  height: 30%;
+  position: fixed;
+  bottom: 0;
 }
+
 .content_summit {
   width: 100%;
   height: 10%;
   position: relative;
-   top: 80%; 
-  /* bottom: 10%; */
+  top: 40%;
 }
-.conent_column{
+
+.content_column {
   width: 100%;
-  height: 15%;
-  border: 1px solid #e6e6e6;
-  font-size: 12px;
+  height: 25%;
+  border-top: 1px solid #e6e6e6;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
 }
-.conent_column_default{
-  width: 100%;
-  height: 40%;
-  font-size: 12px;
+
+.title {
+  width: 20%;
+  position: relative;
+  top: 25%;
 }
-.conent_column_input{
-  margin-top: 5px;
+
+.detail {
+  width: 80%;
+  position: relative;
+  top: 25%;
 }
-.conent_column_radio{
-  margin-top: 8%；
+
+.detail_add {
+  width: 80%;
+  position: relative;
+  top: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.map_image {
+  width: 20px;
+  height: 20px;
+}
+
+.detail_add .select{
+ width: 80%;
+}
+.detail_add .map{
+ width: 20%;
 }
