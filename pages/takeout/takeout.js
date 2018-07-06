@@ -22,7 +22,10 @@ Page({
     sendUpLimit:0,
     spreadLimit:0,
     displayStyle:1,
-    shop:null
+    shop:null,
+    map:null,
+    pro:null,
+    id:null
   },
 
   /**
@@ -69,6 +72,12 @@ Page({
         key: 'outtotalMoney',
         success: function (res) {
           that.setTotalMoney(res.data)
+        }
+      })
+      wx.getStorage({
+        key: 'map',
+        success: function (res) {
+          that.setMap(res.data)
         }
       })
     } else {
@@ -210,14 +219,26 @@ Page({
     var that=this;
     var length = this.data.carts.length;
     var carts = this.data.carts;
-    var totalMoney = this.data.totalMoney + this.data.product.num*this.data.product.price;
+    var ids = e.currentTarget.id;
+    var product;
+    if(null==this.data.product){
+      product=this.data.pro
+    }else{
+      if (ids == this.data.product.id) {
+        product = this.data.product
+      } else {
+        product = this.data.pro
+      }
+    }
+      
+    var totalMoney = this.data.totalMoney + product.num*product.price;
     this.setData({
       totalMoney: totalMoney
     })
     var count = 0;
     for (var i = 0; i < length; i++) {
       var id = carts[i].id;
-      if (id == this.data.product.id) {
+      if (id == ids) {
         var num = carts[i].num;
         carts[i].num = num + 1;
         count++;
@@ -228,12 +249,12 @@ Page({
       }
     }
     if (count == 0) {
-      var car = {
-        id: this.data.product.id,
-        name: this.data.product.name,
-        price: this.data.product.price,
-        pic: this.data.product.image,
-        num: this.data.product.num,
+        var car = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        pic: product.image,
+        num: product.num,
         isSelect: false
       };
       carts[length] = car;
@@ -241,9 +262,9 @@ Page({
         carts: carts
       })
     }
-
     that.addIntoStorage();
     that.judgeIfCanSeddOut();
+    that.setIntoMap();
     wx.showToast({
       title: '加入购物车成功',
       icon: 'success',
@@ -277,8 +298,16 @@ Page({
   },
   clickMinus: function (e) {
     var that=this;
-    const index = e.currentTarget.dataset.id;
+    var index ;
+    var id = e.currentTarget.dataset.id;
     let carts = this.data.carts;
+    for (var i = 0; i < carts.length;i++){
+      var ids=carts[i].id;
+      if (id==ids){
+        index=i;
+        break;
+        }
+    }
     let num = carts[index].num;
     var totalMoney = this.data.totalMoney - carts[index].price * 1;
 
@@ -289,6 +318,7 @@ Page({
         totalMoney: totalMoney
       });
       that.changeTotalMoney();
+      that.setIntoMap();
       return false;
     }
     num = num - 1;
@@ -298,6 +328,7 @@ Page({
       totalMoney: totalMoney
     });
     that.changeTotalMoney();
+    that.setIntoMap();
   },
   /* 点击加号 */
   clickPlus: function (e) {
@@ -314,6 +345,7 @@ Page({
     });
     that.addIntoStorage();
     that.judgeIfCanSeddOut();
+    that.setIntoMap();
   },
   changeTotalMoney:function(){
     var that=this;
@@ -333,7 +365,6 @@ Page({
       totalMoney:data
     })
     that.judgeIfCanSeddOut();
-
   },
   judgeIfCanSeddOut:function(){
     var sentLimit = this.data.sendUpLimit;
@@ -371,7 +402,6 @@ Page({
     })
   },
   toBuy:function(){
-    console.log(this.data.displayStyle != 3)
     if(this.data.displayStyle!=3){
       return false;
     }
@@ -381,5 +411,66 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
+  },
+  clearAllCars:function(){
+    this.setData({
+      carts:[],
+      totalMoney:0,
+      map:{},
+      displayStyle:1
+    })
+    try {
+      wx.removeStorageSync('outcars');
+      wx.removeStorageSync('outtotalMoney');
+      wx.removeStorageSync('outexperation');
+      wx.removeStorageSync('map');
+    } catch (e) {
+      // Do something when catch error
+    }
+    if (this.data.totalMoney <= 0) {
+      this.setData({
+        showAni: false,
+        top_height: '10%'
+      })
+    }
+  },
+  setIntoMap:function(){
+    var id,num;
+    var map={};
+    for(var i =0;i<this.data.carts.length;i++){
+      id=this.data.carts[i].id;
+      num=this.data.carts[i].num;
+      map[id]=num;
+    }
+    this.setData({
+      map:map
+    })
+    try{
+      wx.setStorageSync('map', this.data.map)
+    }catch(e){
+      
+    }
+  },
+  setMap:function(data){
+    this.setData({
+      map:data
+    })
+  },
+  addIntoCartsWhenClickPlus:function(e){
+    var that=this;
+    var id = e.currentTarget.id;
+    var productList=this.data.productList;
+    var pro;
+    for (var i = 0; i < productList.length;i++){
+      if (productList[i].id==id){
+        pro = productList[i];
+        break;
+      }
+    }
+    pro.num=1;
+    this.setData({
+      pro:pro
+    })
+    that.addIntoCarts(e);
   }
 })

@@ -39,23 +39,23 @@
     <view class='product_detail'>
       <scroll-view scroll-y='true' class='scroll_product'>
         <view class='image_view' wx:for="{{productList}}">
-          <view class='detail_image_view'>
+          <view class='detail_image_view' bindtap='cascadeToggle' id='{{item.id}}'>
             <image src='{{item.image}}' class='detail_image'></image>
           </view>
           <view class='text_view'>
-            <view class='detail_text'>
+            <view class='detail_text' bindtap='cascadeToggle' id='{{item.id}}'>
               <text class='title'>{{item.name}}</text>
               <text class='description'>{{item.description}}</text>
               <text class='price'>￥{{item.price}}</text>
             </view>
             <view class='plus_view'>
-              <view class='minus_view'>
+              <view class="{{map[item.id]>0?'minus_view':'none'}}" data-id="{{item.id}}" bindtap='clickMinus'>
                 <image src='../../icon/minus.png' class='plus'></image>
               </view>
-              <view class='plus_view_text'>
-                <input type='text'></input>
+              <view class='plus_view_text' id='{{item.id}}'>
+                <text class='num_text'>{{map[item.id]}}</text>
               </view>
-              <view class='plus_view_detail' bindtap='cascadeToggle' id='{{item.id}}'>
+              <view class='plus_view_detail' bindtap='addIntoCartsWhenClickPlus' id='{{item.id}}'>
                 <image src='../../icon/plus.png' class='plus'></image>
               </view>
             </view>
@@ -70,7 +70,7 @@
     </view>
     <view class="{{showAni?'ani_car':'ani_car_none'}}" animation="{{animationData}}">
       <view class='header'>
-        <view class='header_clear_all'>
+        <view class='header_clear_all' bindtap='clearAllCars'>
           <image src='../../icon/clearAll.png' class='clear_all_image'></image>
           <text class='clear_all_text'>清空购物车</text>
         </view>
@@ -81,11 +81,11 @@
             <view class='ani_scroll_name'>{{item.name}}</view>
             <view class='ani_scroll_price'>￥{{item.price}}</view>
             <view class='ani_scroll_num'>
-              <view class='ani_sku_minu' data-id="{{index}}" bindtap='clickMinus'>
+              <view class='ani_sku_minu' data-id="{{item.id}}" bindtap='clickMinus'>
                 <image src='../../icon/min.png' class='sku_num_image'></image>
               </view>
               <view class='ani_sku_number'>
-                <input type="number" value="{{item.num}}" data-index="{{index}}" data-id="{{index}}" />
+                <text data-index="{{index}}" data-id="{{index}}">{{item.num}}</text>
               </view>
               <view class='ani_sku_plus' bindtap="clickPlus" data-id="{{index}}">
                 <image src='../../icon/plus.png' class='sku_num_image'></image>
@@ -103,7 +103,7 @@
           <image src="{{totalMoney>0?car_image:default_car_image}}" class='footer_car'></image>
         </view>
         <view class='right_text_view'>
-          <input class="{{totalMoney>0?'summary_price':'summary_price_nodisplay'}}" value="￥{{totalMoney}}"></input>
+          <text class="{{totalMoney>0?'summary_price':'summary_price_nodisplay'}}">￥{{totalMoney}}</text>
           <text class='takeout_price'>令需{{takeout_price}}元配送费</text>
         </view>
       </view>
@@ -132,7 +132,7 @@
             <text class="{{minusStatus}}">-</text>
           </view>
           <view class='sku_number'>
-            <input type="number" bindchange="bindManual" value="{{product.num}}" data-index="{{product.id}}" data-id="{{product.id}}" />
+            <text data-index="{{product.id}}" data-id="{{product.id}}">{{product.num}}</text>
           </view>
           <view class='sku_plus' bindtap="bindPlus" data-id="{{product.id}}">
             <text class="normal">+</text>
@@ -140,7 +140,7 @@
         </view>
       </view>
       <view class='ani_button'>
-        <view class='ani_button_add' bindtap='addIntoCarts'>
+        <view class='ani_button_add' bindtap='addIntoCarts' id='{{product.id}}'>
           <text class='text'>加入购物车</text>
         </view>
       </view>

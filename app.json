@@ -1,8 +1,7 @@
 {
   "pages": [
-        "pages/takeout/takeout",
-        
-        "pages/home/home",        
+    "pages/home/home",
+    "pages/takeout/takeout",
     "pages/address/address",
     "pages/accept/accept",
     "pages/order/takeout/takeoutOrder",

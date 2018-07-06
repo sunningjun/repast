@@ -166,7 +166,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 50%;
+  width: 70%;
 }
 
 .detail_image_view {
@@ -201,7 +201,7 @@
 }
 
 .plus_view {
-  width: 50%;
+  width: 35%;
   display: flex;
   flex-direction: row;
   position: relative;
@@ -565,5 +565,8 @@ border-bottom: 1px solid #e6e6e6
 }
 .none{
   display: none
+}
+.num_text{
+  font-size: 14px;
 }
 
